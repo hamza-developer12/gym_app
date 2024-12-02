@@ -14,22 +14,23 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // Future.delayed(
-    //     Duration(seconds: 3),
-    //     () => {
-    //           Navigator.pushReplacement(
-    //             context,
-    //             MaterialPageRoute(
-    //               builder: (context) => const LoginScreen(),
-    //             ),
-    //           )
-    //         });
+    Future.delayed(
+        const Duration(seconds: 3),
+        () => {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ),
+              )
+            });
   }
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return BackgroundUi(
+      imagePath: "assets/images/image_1.png",
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

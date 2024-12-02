@@ -12,14 +12,15 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return BackgroundUi(
+      imagePath: "assets/images/image_1.png",
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -64,8 +65,8 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             SizedBox(height: height * 0.015),
             CustomTextfield(
-              hintText: "Enter Mobile Number",
-              controller: phoneController,
+              hintText: "Enter Email",
+              controller: emailController,
               inputType: TextInputType.phone,
             ),
             SizedBox(height: height * 0.015),
@@ -87,8 +88,13 @@ class _SignupScreenState extends State<SignupScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Already have an account? "),
-                Text("Go back to signin")
+                const Text("Already have an account? "),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("Go back to signin"),
+                )
               ],
             ),
           ],

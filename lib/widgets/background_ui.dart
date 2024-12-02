@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class BackgroundUi extends StatelessWidget {
+  final String imagePath;
   final Widget child;
-  const BackgroundUi({super.key, required this.child});
+  const BackgroundUi({
+    super.key,
+    required this.child,
+    required this.imagePath,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +16,7 @@ class BackgroundUi extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Image.asset(
-            "assets/images/image_1.png",
+            imagePath,
             alignment: Alignment.center,
             fit: BoxFit.cover,
           ),

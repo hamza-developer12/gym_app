@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/screens/shared/signup_screen.dart';
+import 'package:gym_app/screens/user/user_home_screen.dart';
 import 'package:gym_app/widgets/background_ui.dart';
 import 'package:gym_app/widgets/custom_button.dart';
 import 'package:gym_app/widgets/custom_textfield.dart';
@@ -14,10 +15,11 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    final phoneController = TextEditingController();
+    final emailController = TextEditingController();
     final passwordController = TextEditingController();
     final height = MediaQuery.of(context).size.height;
     return BackgroundUi(
+      imagePath: "assets/images/image_1.png",
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -26,8 +28,8 @@ class _LoginScreenState extends State<LoginScreen> {
             Image.asset("assets/images/logo.png"),
             SizedBox(height: height * 0.1),
             CustomTextfield(
-              hintText: "Enter Mobile Number",
-              controller: phoneController,
+              hintText: "Enter Email ",
+              controller: emailController,
               inputType: TextInputType.phone,
             ),
             SizedBox(height: height * 0.02),
@@ -51,6 +53,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 btnText: "Sign In",
                 textColor: Colors.white,
                 onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UserHomeScreen(),
+                    ),
+                  );
                   debugPrint("Hello");
                 },
               ),
