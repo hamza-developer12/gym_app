@@ -18,8 +18,8 @@ class CustomProduct extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Container(
-      width: 168,
-      height: 182,
+      width: width * 0.4,
+      // height: height * 0.2,
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           side: const BorderSide(width: 2, color: Color(0xFFEE7E1A)),
@@ -27,17 +27,14 @@ class CustomProduct extends StatelessWidget {
         ),
       ),
       child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Image.asset(
-              imageUrl,
-              width: width * 1,
-            ),
-          ),
-          SizedBox(height: height * 0.001),
+          Image.asset("assets/images/product_1.png"),
           Container(
-            width: 165,
+            width: double.infinity,
+            // height: 40,
             decoration: const ShapeDecoration(
               color: Color(0xFFEE7E1A),
               shape: RoundedRectangleBorder(
@@ -49,21 +46,13 @@ class CustomProduct extends StatelessWidget {
             ),
             child: Column(
               children: [
-                SizedBox(height: height * 0.01),
-                Text("RS: $price",
-                    style: const TextStyle(
-                      fontSize: 17,
-                    )),
-                Text(title,
-                    style: const TextStyle(
-                      fontSize: 16,
-                    )),
-                Text(
-                  description,
-                  style: const TextStyle(
-                    fontSize: 14,
-                  ),
-                ),
+                Text("RS: 6090",style: TextStyle(
+                  // fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),),
+                Text("Nitro Tech", style: TextStyle(
+                  // fontSize: 14,
+                ))
               ],
             ),
           )

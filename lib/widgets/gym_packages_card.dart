@@ -91,7 +91,7 @@ class GymPackagesCard extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "${packagePrice}pkr per month",
+                  "${packagePrice} pkr per month",
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
