@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/screens/shared/login_screen.dart';
+import 'package:gym_app/services/storage_services.dart';
 import 'package:gym_app/widgets/background_ui.dart';
+import 'package:gym_app/screens/admin/admin_home_screen.dart';
+import 'package:gym_app/screens/user/user_home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,12 +20,24 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
         const Duration(seconds: 3),
         () => {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LoginScreen(),
-                ),
-              )
+              StorageServices().getData("role").then((value) {
+                if (value == "admin") {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AdminHomeScreen()));
+                } else if (value == "user") {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const UserHomeScreen()));
+                } else {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
+                }
+              })
             });
   }
 

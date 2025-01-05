@@ -21,5 +21,11 @@ class AppTheme {
           height: 80,
         )),
     iconTheme: const IconThemeData(color: Color(0xFFEC7E1B)),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: Color(0xFFEC7E1B),
+    ),
+    dialogTheme: const DialogTheme(
+      backgroundColor: Color(0xFFEC7E1B),
+    ),
   );
 }

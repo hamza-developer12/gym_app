@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "160356949104",
+    "project_id": "gym-app-7886f",
+    "storage_bucket": "gym-app-7886f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160356949104:android:57574aaa1967210933a8b5",
+        "android_client_info": {
+          "package_name": "com.lexusdevelopers.gym_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt3OiZOHh-1PDaur7wX-_7TBT1jn1Rbuc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

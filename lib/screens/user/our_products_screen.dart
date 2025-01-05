@@ -13,6 +13,7 @@ class OurProductsScreen extends StatefulWidget {
 class _OurProductsScreenState extends State<OurProductsScreen> {
   ProductsData products = ProductsData();
 
+  
   @override
   Widget build(BuildContext context) {
     List productsData = products.data;
@@ -23,7 +24,7 @@ class _OurProductsScreenState extends State<OurProductsScreen> {
       child: Column(
         children: [
           SizedBox(height: height * 0.01),
-          Text("Visit our indoor store to purchase \n the product.",
+          const Text("Visit our indoor store to purchase \n the product.",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 16,
@@ -31,26 +32,55 @@ class _OurProductsScreenState extends State<OurProductsScreen> {
             )
           ),
           SizedBox(height: height * 0.01),
-          // Expanded(
-          //   child: GridView(
-          //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //           crossAxisCount: 2,
-          //         crossAxisSpacing: 10,
-          //         mainAxisSpacing: 40,
-          //
-          //       ),
-          //     children: productsData.map(
-          //             (item)=>CustomProduct(
-          //                 imageUrl: item['imageUrl'],
-          //                 price: item['price'],
-          //                 title: item['title'],
-          //                 description: item['description']
-          //             )).toList(),
-          //   ),
-          // ),
-
+          Row(
+            children: [
+              ProductShow(productsData[0]),
+              ProductShow(productsData[1])
+            ],
+          )
         ],
       )
     );
   }
+Widget ProductShow(Map<String,dynamic> product) {
+    return Container(
+      width: 165,
+      height: 200,
+      decoration: ShapeDecoration(
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(width: 2, color: Color(0xFFEE7E1A)),
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Image.asset(product['imageUrl']),
+          SizedBox(
+            child: Container(
+              decoration: ShapeDecoration(
+                color: Color(0xFFEE7E1A),
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(width: 2,
+                      color: Color(0xFFEE7E1A)),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Text(product['title'],
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                  Text(product['price'].toString()),
+                  Padding(padding: EdgeInsets.symmetric(vertical: 2),),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+}
 }

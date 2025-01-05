@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/data/admin_menu_data.dart';
 import 'package:gym_app/providers/auth_provider.dart';
+import 'package:gym_app/screens/admin/provide_coins_screen.dart';
 import 'package:gym_app/screens/user/gym_packages_screen.dart';
 import 'package:gym_app/screens/user/qr_scan_screen.dart';
-import 'package:gym_app/screens/user/request_coins.dart';
-import 'package:provider/provider.dart';
-import '../data/user_menu_data.dart';
 
-class UserDashboardLayout extends StatelessWidget {
+class AdminDashboardLayout extends StatelessWidget {
   final Widget child;
-  UserDashboardLayout({super.key, required this.child});
+  AdminDashboardLayout({super.key, required this.child});
 
-  UserMenuData userData = UserMenuData();
+  AdminMenuData userData = AdminMenuData();
 
   @override
   Widget build(BuildContext context) {
-    AuthProvider provider = Provider.of<AuthProvider>(context, listen: false);
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -61,7 +59,7 @@ class UserDashboardLayout extends StatelessWidget {
                 ),
               GestureDetector(
                 onTap: () {
-                  provider.logout(context);
+                  AuthProvider().logout(context);
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(
@@ -109,7 +107,7 @@ class UserDashboardLayout extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => RequestCoins(),
+                    builder: (context) => ProvideCoinsScreen(),
                   ),
                 );
               },
